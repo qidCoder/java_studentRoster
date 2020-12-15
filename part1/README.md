@@ -2,7 +2,7 @@
 In this assignment, you will practice one-to-one relationships by creating a student roster application. Analyze the wireframe below and create the appropriate domain models with the correct relationships.
 
 ### Wireframe
-![studentroster](part1/wireframe.png)
+![studentroster](/part1/wireframe.png)
 
 #### Set Up
 Creating the web view for this assignment will be optional (only if you are behind schedule). First, create one controller and one service called ```ApiService```. This service will have all the repository dependencies that you need. Complete each task below.
