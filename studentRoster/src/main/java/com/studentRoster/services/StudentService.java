@@ -38,4 +38,12 @@ public class StudentService {
 	public void deleteStudent(Long id) {
 		this.studentRepo.deleteById(id);
 	}
+	
+	//Update a student
+	//Delete a student from a dorm - essentially updating the student to remove its dorm assignment
+	public Student updateStudent(Student student) {
+		return this.studentRepo.save(student);
+	}
+	
+
 }

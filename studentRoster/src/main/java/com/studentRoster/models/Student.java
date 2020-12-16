@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -26,7 +28,15 @@ public class Student {
     @NotNull
     private String lastName;
     
-    @NotNull
+    public Dorm getDorm() {
+		return dorm;
+	}
+
+	public void setDorm(Dorm dorm) {
+		this.dorm = dorm;
+	}
+
+	@NotNull
 	private int age;
     
     public int getAge() {
@@ -58,13 +68,15 @@ public class Student {
     
     private Date updatedAt;
     
+	//one student has one contact
     @OneToOne(mappedBy="student", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     private Contact contact;
     
-//    @OneToOne(fetch=FetchType.LAZY)
-//    
-//    @JoinColumn(name="contact_id")// Defines mapping for composite foreign keys. It indicates that the corresponding table to this entity has a foreign_key to the referenced table.
-//    private Contact contact;
+	//one dorm has many students
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="dorm_id")
+    private Dorm dorm;
+
     
     //constructor
     public Student() {
